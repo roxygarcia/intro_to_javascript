@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Course</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+<body>
+
+    <!-- Inline - bad practice - never do this -->
+        <main>
+            <h1>Let's have some fun</h1>
+            <button type="button" class="btn btn-primary" onclick="grabElementAndSpitOutValue()">Click Me</button>
+
+            <p id="mainDiv"></p>
+        </main>
+
+        <!-- don't do this. you don't want your javascript inside your html. Affects load time, and will be hard to find if you have thousands of lines of code -->
+        <!-- <script>
+            function myFunk() {
+                let question = prompt('Tell me your name.');
+                console.log('Your name is ' + question);
+            }        
+        </script> -->
+
+
+        <section>
+            <h1>Click for hobbies.</h1>
+            <button type="button" class="btn btn-primary" onclick="myHobbies()">Click Me</button>
+        </section>
+    
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
