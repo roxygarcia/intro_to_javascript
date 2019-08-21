@@ -1,0 +1,19 @@
+main {
+    margin: auto;
+    padding: 1em;
+    width: 700px;
+    min-height: 50vh;
+    background-color: #000000;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(212, 212, 212);
+    text-transform: uppercase;
+}
