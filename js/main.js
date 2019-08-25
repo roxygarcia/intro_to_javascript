@@ -123,3 +123,89 @@ console.log(allFavMovies);
 
 // let titlesOfFavMovies = [];
 // titlesOfFavMovies.push(allFavMovies[0][1], allFavMovies[1][1], allFavMovies[2][1]);
+
+
+//LOOPS
+
+//while loop, becareful with while loops it can crash your browser/computer...can go infinitely if you forget something...increments are outside
+let x = 0;
+while (x <= 10) {
+    console.log(x);
+    x++;
+}
+
+//For loop, do need to initialize a variable before, going to be within the pararentheses...going to go until a condition is met...increments, conditions are inside, one line
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+// for (let i = 20; i > 0; i--) {
+//     console.log(i);
+// }
+
+for (let i = 0; i < 10; i++) {
+    if (i == 4) {
+        break;
+    }
+    console.log(i);
+}
+
+//will continue a for loop even if your condition is met or you use break to stop a certain part of a loop
+for (let i = 0; i < 10; i++) {
+    if (i == 4) {
+        continue;
+    }
+    console.log(i);
+}
+
+//DO WHILE, will run at least once even if the condition is not met...while loop will not run if condition isn't met
+
+let i = 0;
+
+do {
+    console.log(i);
+    i++;
+} while(i < 10);
+
+//  For Each
+let arr3 = [1, 2, 3, 4];
+
+arr3.forEach(function(x){
+    console.log('I am ' + x);
+});
+
+// For of, 
+let myString = "Hi, my name is Roxy";
+
+for (i of myString) {
+    console.log(i);
+}
+
+// For in
+
+let people = [{
+        firstName : 'Roxy',
+        lastName : 'Garcia',
+        age : 22
+    },
+    {
+        firstName : 'Genesis',
+        lastName : 'Garcia',
+        age : 1
+    }
+];
+
+for (person of people) {
+    console.log(person.firstName);
+}
+
+// let people = {
+//     firstName : 'Roxy',
+//     lastName : 'Garcia',
+//     age : 31
+// };
+
+//person is just a place holder, you can name it anything you want
+// for (person in people) {
+//     console.log(people[person]);
+// }
