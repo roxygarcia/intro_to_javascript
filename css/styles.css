@@ -1,0 +1,28 @@
+body {
+    background-color: skyblue !important;
+}
+
+main {
+    min-height: 100vh;
+    /* background-color: skyblue; */
+}
+
+section {
+    background-color: #fff;
+    color: #333;
+    padding: 0.5em;
+}
+
+ul, li {
+    list-style: none;
+}
+
+li::before {
+    content: '- ';
+    font-weight: bold;
+}
+
+h1 {
+    font-style: italic !important;
+    color: skyblue !important;
+}

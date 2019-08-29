@@ -10,6 +10,29 @@
 </head>
 <body>
 
+    <main class="container">
+        <div class="row">
+            <section class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="" id="greeting"></h1>
+                        <ul id="groceryList">
+                            <li id="groceryItem1"></li>
+                            <li id="groceryItem2"></li>
+                            <li id="groceryItem3"></li>
+                            <li id="groceryItem4"></li>
+                            <li id="groceryItem5"></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="getGroceryItem">Add onto your groceries:</label>
+                        <input type="text" id="getGroceryItem">
+                        <button type="button" onclick="ejectGroceryItemToList()" value="Add" class="btn">Sumbit</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
