@@ -74,24 +74,24 @@ function addGroceryItem(arr, value) {
     arr.push(value);
 }
 
-function ejectGroceryItemToList() {
+function ejectGroceryItemToList(values) {
     //grab list item
     //goal: push array items to list on html
     for(grocery = 0; grocery < arrayofGroceryItems.length; grocery++) {
-        // let li = document.getElementById(`groceryItem${grocery + 1}`);
+        let li = document.getElementById(`groceryItem${grocery + 1}`);
         // now that I can loop through my list items, I can now eject EACH array val into EACH separate list item
-        // li.innerHTML = values[grocery];
+        li.innerHTML = values[grocery];
 
         //add value to array using input
-        arrayofGroceryItems.push(document.getElementById('getGroceryItem').value);
-        console.log(arrayofGroceryItems);
+        // arrayofGroceryItems.push(document.getElementById('getGroceryItem').value);
+        // console.log(arrayofGroceryItems);
     }
 }
 
-// addGroceryItem(arrayofGroceryItems,'Asparagus');
-// addGroceryItem(arrayofGroceryItems,' Carrots');
-// addGroceryItem(arrayofGroceryItems,' Lettuce');
-// addGroceryItem(arrayofGroceryItems,' Cabbage');
-// addGroceryItem(arrayofGroceryItems,' Bell Peppers');
-// console.log(arrayofGroceryItems);
-// ejectGroceryItemToList(arrayofGroceryItems);
+addGroceryItem(arrayofGroceryItems,'Asparagus');
+addGroceryItem(arrayofGroceryItems,' Carrots');
+addGroceryItem(arrayofGroceryItems,' Lettuce');
+addGroceryItem(arrayofGroceryItems,' Cabbage');
+addGroceryItem(arrayofGroceryItems,' Bell Peppers');
+console.log(arrayofGroceryItems);
+ejectGroceryItemToList(arrayofGroceryItems);
