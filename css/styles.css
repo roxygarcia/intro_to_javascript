@@ -1,0 +1,10 @@
+body, .row {
+    background-color: pink;
+}
+
+.content {
+    background-color: #eee;
+    padding: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+}
