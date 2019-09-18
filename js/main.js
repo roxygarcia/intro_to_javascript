@@ -1,87 +1,133 @@
-const container = document.createElement('main');
-//another way to add class to element
-// container.className = 'container';
-container.classList.add('container');
+//after breeds the data will change to whatever I want
+//https://dog.ceo/api/breeds/list/all
 
-console.log(container);
-//how to remove class
-// container.classList.remove('container);
-
-document.body.appendChild(container);
-//becareful with entering raw html into your js code because you make yourself vulnerable to hacking...innerHTML
-container.innerHTML = '<h1>HELLO</h1>';
-console.log(container);
-
-
-function movieQuote () {
-    alert('To infinity and beyond!');
-}
-
-let timer;
-
-function callQuote () {
-    // let timer = setTimeout(movieQuote, 5000);
-    timer = setInterval(movieQuote, 3000);
-    console.log('triggered');
-}
-
-function stopFromRunning () {
-    let stop = clearInterval(timer);
-}
-
-const button = document.createElement('button');
-button.setAttribute('onclick', 'callQuote()');
-button.innerText = 'Click for a movie quote';
-button.className = 'btn btn-primary btn-lg';
-container.appendChild(button);
-
-const stopButton = document.createElement('button');
-stopButton.className = 'alert alert-danger border-danger border';
-stopButton.setAttribute('onclick', 'stopFromRunning()');
-stopButton.innerText = 'STOP';
-
-button.addEventListener('click', () => {
-    container.appendChild(stopButton);
-});
-
-////////////////////////////////////////////////////////////
-
-const storageButton = document.createElement('button');
-storageButton.className = 'alert alert-danger border-danger border';
-storageButton.innerText = 'TEST';
-
-storageButton.addEventListener('click', () => {
-//Session Storage...is there until you close your session/browser
-sessionStorage.setItem('Temporary', 'Every problem is temporary');
-sessionStorage.getItem('TEMPORARY');
-
-
-//Local Storage....is there until you clear it
-localStorage.setItem('DEATH', 'Except for death - Grace');
-localStorage.getItem('Death');
-
-});
-
-/////////////////////////////////////////////
-
-//anonymus function triggers another function within
-const example = function(param) {
-    return test(param);
-}
-
-function test(testParam) {
-    alert(testParam);
-}
-
-example('Okay I see what you did there tho');
-
-//another example
-// const exampleTwo = function(param, anything) {
-//     return test(param, anything);
+// function playWithApi() {
+//     const url = 'https://api.adviceslip.com/advice';
+//     fetch(url);
+//     console.log(url);
 // }
 
-// function testTwo(testParam, okay) {
-//     alert(testParam + okay);
-// }
+// playWithApi();
 
-// exampleTwo('Okay I see what you did there tho', 'Another one');
+let h1Test = document.createElement("h1");
+const body = document.getElementsByTagName("body")[0];
+body.appendChild(h1Test);
+
+function queryRandomUserAPI() {
+    var url = 'http://api.icndb.com/jokes/random?firstName=John&amp;lastName=Doe';
+    fetch(url) // Call the fetch function passing the url of the API as a parameter
+      .then(function(resp){
+        return resp.json()// Transform the data into json
+      })
+      .then(function(data) {
+        h1Test.innerHTML = data.value.joke;
+        console.log(data);
+        //How can we display this data?
+      })
+      .catch(function() {
+          // This is where you run code if the server returns any errors
+      });
+  };
+
+
+queryRandomUserAPI();
+
+
+//Play with testing JSON:
+const exampleJson = ' {"name": "Roxy", "aga": 31} ';
+const exampleJsonTwo = ' {"Hobby": "Puzzles", "Favorite Cartoon": "Looney Tunes"} ';
+const exampleParse = JSON.parse(exampleJsonTwo);
+//wrapper.innerText = exampleParse.age;
+
+const exampleStringfy = JSON.stringify(exampleJsonTwo);
+//wrapper.innerText = exampleStringfy;
+
+console.log(exampleJson);
+console.log(exampleJsonTwo);
+
+//Closure - acts like "let"...is when you call something within a scope...your are calling a parent of a scope and calling it outside....still has its own scope but now its also global
+function practiceScope() {
+    let random = 'Inside scope';
+
+    const phrase = function () {
+        console.log('This is super cool!');
+    }
+    return phrase();
+}
+
+let practiceOutside = practiceScope;
+
+//callbacks
+const example = [1,2,3];
+const exampleBreakdown = example.forEach( (val) => {
+    return val + 5;
+});
+
+console.log(exampleBreakdown);
+
+//API practice
+
+//   class AboutMe {
+//       constructor(name, age, petName, petBreed) {
+//           this.name = name;
+//           this.age = age;
+//           this.petName = petName;
+//           this.petBreed = petBreed
+//       }
+//   }
+
+//   const Roxy = new AboutMe('Roxy', 31, 'Teegan');
+//   console.log(Roxy);
+
+class mathTrivia {
+    constructor(breed) {
+        // this.number = number;
+        // this.number = number;
+        this.breed = breed;
+    }
+
+// const Six = new mathTrivia('6', 'trivia');
+// console.log(Six);
+
+queryWithParams() {
+    //How can we dynamically get queryCategory and query?
+    
+    const url =`https://dog.ceo/api/breed/${this.breed}/images/random`;
+    fetch(url)
+    .then(function(resp){
+      return resp.json()// Transform the data into json
+    })
+    .then(function(data) {
+        const dogPic = document.createElement("img");
+        dogPic.setAttribute("src", data.message);
+
+        body.appendChild(dogPic);
+      console.log(data);
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
+}
+
+//   const mathH2 = document.createElement("h2");
+//   mathTrivia.innerHTML
+
+let myNumbers = new mathTrivia("african");
+myNumbers.queryWithParams();
+
+
+//creating API for our grocery store
+class Produce {
+    constructor(name, price, organic) {
+        this.name = name;
+        this.price = price;
+        this.organic = organic;
+    }
+}
+const cherry = new Produce('Cherry', 2.99, false);
+console.log(cherry);
+
+const produce = ' { "Cherry": { "price": 2.99, "organic": false}, "Orange": { "price": 1.99, "organic": true }} ';
+const parsed = JSON.parse(produce);
+console.log(parsed.Cherry);
